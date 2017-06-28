@@ -1,0 +1,78 @@
+body {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.container {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+h1 {
+    margin: 20px 0 10px;
+    text-transform: uppercase;
+    color: #444;
+}
+
+#listItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    font-size: inherit;
+    line-height: inherit;
+    flex-basis: calc(100% - 140px);
+    border: 2px solid #ccc;
+    padding: 5px 10px;
+
+}
+
+input:focus {
+    border: 2px solid #444;
+    outline: none;
+}
+
+button {
+    width: 100px;
+    border: 2px solid #444;
+    background: #fff;
+    font-size: .75em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+button:hover {
+    background: #444;
+    color: #fff;
+    cursor: pointer;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+#markComplete button {
+    background: #444;
+    color: #fff;
+    margin-right: 20px;
+    width: auto;
+}
+
+#markComplete button:hover {
+    background: #fff;
+    color: #444;
+}
+
+#markComplete li {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.complete {
+    text-decoration: line-through;
+}

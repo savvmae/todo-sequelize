@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="../public/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Todo List</h1>
+        <form id="listItem" method="POST" action="/todos">
+            <input type="text" name="newItem" placeholder="Add task..." autofocus/>
+            <button type="submit">Add Todo</button>
+        </form>
+        <ul class="todo-list">
+
+            {{#notCompleted}}
+            <form method="POST" action="/todos/{{id}}" id="markComplete">
+                <button type="submit" name="listItemRemove" class="incomplete">Mark complete</button>
+                <li>{{name}}</li>
+            </form>
+            <form id="listItem" method="GET" action="/edit">
+                <button type="submit">Edit Item</button>
+            </form>
+            {{/notCompleted}} {{^notCompleted}}
+            <li>You've completed all your tasks!</li>
+            {{/notCompleted}}
+
+        </ul>
+        <h2>Completed Tasks</h2>
+        <ul class="todo-list">
+
+            {{#isCompleted}}
+
+            <li class="complete">{{name}}</li>
+
+            {{/isCompleted}}
+
+        </ul>
+        <form id="delete-all" method="POST" action="/todos/deleteall">
+            <button type="submit">Delete All Completed Tasks</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
