@@ -17,17 +17,22 @@
         <ul class="todo-list">
 
             {{#notCompleted}}
-            <form method="POST" action="/todos/{{id}}" id="markComplete">
-                <button type="submit" name="listItemRemove" class="incomplete">Mark complete</button>
+            <div class='wrapper'>
                 <li>{{name}}</li>
-            </form>
-            <form id="listItem" method="GET" action="/edit/{{id}}">
-                <button type="submit">Edit Item</button>
-            </form>
-            <form id="listItem" method="POST" action="/delete/{{id}}">
-                <button type="submit">Delete</button>
-            </form>
-            {{/notCompleted}} {{^notCompleted}}
+                <form method="POST" action="/todos/{{id}}" id="markComplete">
+
+                    <button type="submit" name="listItemRemove" class="incomplete">Mark complete</button>
+
+                </form>
+
+                <form id="listItem" method="GET" action="/edit/{{id}}">
+                    <button type="submit">Edit Item</button>
+                </form>
+                <form id="listItem" method="POST" action="/delete/{{id}}">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+            <hr> {{/notCompleted}} {{^notCompleted}}
             <li>You've completed all your tasks!</li>
             {{/notCompleted}}
 

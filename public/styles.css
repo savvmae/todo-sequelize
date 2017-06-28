@@ -41,6 +41,8 @@ button {
     font-size: .75em;
     text-transform: uppercase;
     font-weight: 600;
+    margin-right: 20px;
+    width: auto;
 }
 
 button:hover {
@@ -54,25 +56,15 @@ ul {
     list-style: none;
     display: inline-block;
     margin-top: 20px;
-}
-
-#markComplete button {
-    background: #444;
-    color: #fff;
-    margin-right: 20px;
-    width: auto;
-}
-
-#markComplete button:hover {
-    background: #fff;
-    color: #444;
-}
-
-#markComplete li {
-    display: inline-block;
-    margin: 10px 0;
+    width: 100%;
 }
 
 .complete {
     text-decoration: line-through;
+}
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 0px;
 }

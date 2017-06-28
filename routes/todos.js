@@ -4,11 +4,13 @@ const models = require('../models');
 
 router.get('/todos', async (request, response) => {
     var isNotCompleted = await models.todoList.findAll({
+        order: [['created_at', 'DESC']],
         where: {
             is_completed: false
         }
     })
     var isCompleted = await models.todoList.findAll({
+        order: [['created_at', 'DESC']],
         where: {
             is_completed: true
         }
@@ -52,11 +54,13 @@ router.post('/todos/:id', async (request, response) => {
             }
         });
     var isCompleted = await models.todoList.findAll({
+        order: [['created_at', 'DESC']],
         where: {
             is_completed: true
         }
     })
     var isNotCompleted = await models.todoList.findAll({
+        order: [['created_at', 'DESC']],
         where: {
             is_completed: false
         }
