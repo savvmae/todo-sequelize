@@ -9,11 +9,15 @@
       <div class="container">
         <h1>Edit Item</h1>
         {{#todoList}}
+        
         <form id="listItem" method="POST" action="/edit/{{id}}">
+        <input type="text" name="editItem" placeholder="Update Task..." autofocus/>
+        <button type="submit">Update</button>
+         </form>
         {{/todoList}}
-            <input type="text" name="editItem" placeholder="Update Task..." autofocus/>
-            <button type="submit">Update</button>
-        </form>
+
+            
+       
       </div>
    </body>
 </html>

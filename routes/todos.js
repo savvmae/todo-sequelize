@@ -32,6 +32,16 @@ router.post('/todos/deleteall', async (request, response) => {
     response.redirect('/todos');
 });
 
+router.post('/delete/:id', async (request, response) => {
+    var id = request.params.id;
+    var result = await models.todoList.destroy({
+            where: {
+                id: id
+            }
+        });
+    response.redirect('/todos');
+});
+
 router.post('/todos/:id', async (request, response) => {
     var id = request.params.id;
     var result = await models.todoList.update({

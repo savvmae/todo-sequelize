@@ -21,8 +21,11 @@
                 <button type="submit" name="listItemRemove" class="incomplete">Mark complete</button>
                 <li>{{name}}</li>
             </form>
-            <form id="listItem" method="GET" action="/edit">
+            <form id="listItem" method="GET" action="/edit/{{id}}">
                 <button type="submit">Edit Item</button>
+            </form>
+            <form id="listItem" method="POST" action="/delete/{{id}}">
+                <button type="submit">Delete</button>
             </form>
             {{/notCompleted}} {{^notCompleted}}
             <li>You've completed all your tasks!</li>
