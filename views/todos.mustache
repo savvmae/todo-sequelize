@@ -15,6 +15,11 @@
             <button type="submit">Add Todo</button>
         </form>
         <ul class="todo-list">
+            <div>
+            {{#errors}}
+            <p>{{msg}}</p>
+            {{/errors}}
+            </div>
 
             {{#notCompleted}}
             <div class='wrapper'>

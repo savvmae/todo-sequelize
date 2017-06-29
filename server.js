@@ -2,6 +2,7 @@ const express = require('express');
 const models = require('./models');
 const bodyParser = require('body-parser');
 const mustache = require('mustache-express');
+const expressValidator = require('express-validator');
 const todos = require('./routes/todos');
 const edit = require('./routes/edit')
 
@@ -13,6 +14,7 @@ application.set('view engine', 'mustache');
 
 
 application.use('/public', express.static('./public'));
+application.use(expressValidator());
 application.use(bodyParser.urlencoded());
 application.use(todos);
 application.use(edit);

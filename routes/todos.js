@@ -19,10 +19,29 @@ router.get('/todos', async (request, response) => {
 });
 
 router.post('/todos', async (request, response) => {
+
+    request.checkBody('newItem', 'Item must be at least 1 character').len(1);
+    var errors = request.validationErrors();
     var newtodo = request.body.newItem;
+    var isNotCompleted = await models.todoList.findAll({
+        order: [['created_at', 'DESC']],
+        where: {
+            is_completed: false
+        }
+    })
+    var isCompleted = await models.todoList.findAll({
+        order: [['created_at', 'DESC']],
+        where: {
+            is_completed: true
+        }
+    })
+    
+    if (errors){
+        response.render('todos', {errors: errors, notCompleted: isNotCompleted, isCompleted: isCompleted } );
+    } else {
     var result = await models.todoList.create({ name: newtodo });
     response.redirect('/todos');
-});
+}});
 
 router.post('/todos/deleteall', async (request, response) => {
     var deleted = await models.todoList.destroy({
@@ -37,10 +56,10 @@ router.post('/todos/deleteall', async (request, response) => {
 router.post('/delete/:id', async (request, response) => {
     var id = request.params.id;
     var result = await models.todoList.destroy({
-            where: {
-                id: id
-            }
-        });
+        where: {
+            id: id
+        }
+    });
     response.redirect('/todos');
 });
 
@@ -67,8 +86,5 @@ router.post('/todos/:id', async (request, response) => {
     })
     response.render('todos', { isCompleted: isCompleted, notCompleted: isNotCompleted });
 });
-
-
-
 
 module.exports = router;
