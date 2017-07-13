@@ -14,7 +14,7 @@ module.exports = {
       },
       created_at: {
         type: Sequelize.DATE,
-        defaultValue: sequelize.fn('NOW')
+        defaultValue: Sequelize.fn('NOW')
       },
       is_completed: {
         type: Sequelize.BOOLEAN,
